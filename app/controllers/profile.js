@@ -24,31 +24,31 @@ module.exports={
 		changePassword: function(req, resp){
 			i.userService().changePassword(req).then(function(user){
 				if(!user || user.length <1 ){
-					resp.json(jsonResponse.error('Internal server error. Failed to Change Password.'));
+					resp.json(jsonResp.error('Internal server error. Failed to Change Password.'));
 				} else {
-					resp.json(jsonResponse.data('Password Changed Successfully.'));
+					resp.json(jsonResp.data('Password Changed Successfully.'));
 				}
 			}).fail(function(err){
 				console.log(err);
-				resp.json(jsonResponse.error(err));
+				resp.json(jsonResp.error(err));
 			});
 		},
 		
 		forgotPassword: function(req, resp){
 			i.userService().forgotPassword(req).then(function(token){
 				if(!token){
-					resp.json(jsonResponse.error('Internal server error. Failed to send verification token.'));
+					resp.json(jsonResp.error('Internal server error. Failed to send verification token.'));
 				} else {
-					resp.json(jsonResponse.data('Please check your email for verification link.'));
+					resp.json(jsonResp.data('Please check your email for verification link.'));
 				}
 			}).fail(function(err){
 				console.log(err);
-				resp.json(jsonResponse.error(err));
+				resp.json(jsonResp.error(err));
 			});
 			
 		},
 		resetPassword: function(req, res){
-			i.usersService().resetPassword(req).then(function(user){
+			i.userService().resetPassword(req).then(function(user){
 				if(user && user.length > 0 && user[0]){
 				res.json(jsonResp.data('Your password is successfully reset.'));
 				} else {
