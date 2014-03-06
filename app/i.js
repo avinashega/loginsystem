@@ -59,6 +59,11 @@ module.exports = {
             next();
         };
     },
+    makePromiseError: function (key, message) {
+        return [
+            {param: key, msg: message}
+        ];
+    },
 
     jsonResponse: {
         data: function (data) {
