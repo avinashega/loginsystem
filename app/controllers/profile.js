@@ -33,10 +33,26 @@ module.exports={
 				resp.json(jsonResponse.error(err));
 			});
 		},
+		
+		forgotPassword: function(req, resp){
+			i.userService().forgotPassword(req).then(function(token){
+				if(!token){
+					resp.json(jsonResponse.error('Internal server error. Failed to send verification token.'));
+				} else {
+					resp.json(jsonResponse.data('Please check your email for verification link.'));
+				}
+			}).fail(function(err){
+				console.log(err);
+				resp.json(jsonResponse.error(err));
+			});
+			
+		},
+		
 
 		routes: function(app){
 			app.get('/profile', _checkAuth(false), this.profile);
 			app.post('/profile/update', _checkAuth(false), this.update);
 			app.post('/profile/changePassword', this.changePassword);
+			app.post('/profile/forgotPassword', this.forgotPassword);
 		}
 };

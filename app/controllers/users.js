@@ -66,19 +66,6 @@ module.exports={
 				resp.render('message', {message:err});
 			});
 		},
-		forgotPassword: function(req, resp){
-			i.userService().forgotPassword(req).then(function(token){
-				if(!token){
-					resp.json(jsonResponse.error('Internal server error. Failed to send verification token.'));
-				} else {
-					resp.json(jsonResponse.data('Please check your email for verification link.'));
-				}
-			}).fail(function(err){
-				console.log(err);
-				resp.json(jsonResponse.error(err));
-			});
-			
-		},
 		signout: function(req, resp){
 	        req.session.destroy();
 	        resp.redirect('/signin');
@@ -94,7 +81,6 @@ module.exports={
 			app.post('/signup', this.signupAction);
 			app.post('/signin', this.signinAction);
 			app.get('/activate/:token', this.activate);
-			app.post('/forgotPassword', this.forgotPassword);
 			app.get('/signout', this.signout);
 			app.get('/emailConfirmation', this.emailConfirmation);
 			app.get('/pingjs', this.pingjs);
