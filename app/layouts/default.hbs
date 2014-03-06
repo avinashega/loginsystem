@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{block "title"}}</title>
+
+    {{> header}}
+    {{block "headscript"}}
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button data-target="#navbar-main" data-toggle="collapse" type="button" class="navbar-toggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+               
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="color:#000">{{username}}<i style="margin-left:5px;" class="icon-chevron-down"></i></a>
+                    <ul role="menu" aria-labelledby="dropdownMenu" class="dropdown-menu">
+                        <li><a tabindex="-1" href="/profile">My account</a></li>
+                        <li><a tabindex="-1" href="/signout">Signout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<p>&nbsp;</p>
+<div class="container">
+    {{{body}}}
+</div>
+{{> footer}}
+{{{block "footerscripts"}}}
+</body>
+</html>
