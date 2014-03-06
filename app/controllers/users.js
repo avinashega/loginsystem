@@ -9,9 +9,6 @@ module.exports={
 		home: function(req, resp){
 			resp.render('home', {username: req.session.username});
 		},
-		pingjs: function(req, resp){
-			resp.render('pingjs');
-		},
 		signup: function(req, resp){
 			resp.render('signup');
 		},
@@ -83,6 +80,5 @@ module.exports={
 			app.get('/activate/:token', this.activate);
 			app.get('/signout', this.signout);
 			app.get('/emailConfirmation', this.emailConfirmation);
-			app.get('/pingjs', this.pingjs);
 		}
 }

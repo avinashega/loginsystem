@@ -47,12 +47,23 @@ module.exports={
 			});
 			
 		},
-		
+		resetPassword: function(req, res){
+			i.usersService().resetPassword(req).then(function(user){
+				if(user && user.length > 0 && user[0]){
+				res.json(jsonResp.data('Your password is successfully reset.'));
+				} else {
+					res.json(jsonResp.error('Invalid password reset token.'));
+				}
+			}).fail(function(err){
+				res.json(jsonResp.error(err));
+			})
+		},
 
 		routes: function(app){
 			app.get('/profile', _checkAuth(false), this.profile);
 			app.post('/profile/update', _checkAuth(false), this.update);
 			app.post('/profile/changePassword', this.changePassword);
 			app.post('/profile/forgotPassword', this.forgotPassword);
+			app.post('/profile/reset', _checkAuth(true), this.resetPassword);
 		}
 };

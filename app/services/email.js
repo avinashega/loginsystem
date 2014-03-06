@@ -35,7 +35,7 @@ module.exports = {
 				var templateFile = fs.readFileSync('app/views/emails/resetPassword.hbs', 'utf8');
 			 	reset = handlebars.compile( templateFile );
 			}
-			var html = reset({user:user});
+			var html = reset({user:user, host:config.http.host});
 			var jobData = {
                     html: html,
                     text: 'Reset Password',
