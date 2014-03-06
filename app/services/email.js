@@ -15,10 +15,10 @@ module.exports = {
 			var html = welcome({user:user, host:config.http.host});
         	var jobData = {
                     html: html,
-                    text: 'Welcome to Pingjs',
-                    subject: 'Welcome to Pingjs',
+                    text: 'Welcome to Login',
+                    subject: 'Welcome to Login',
                     from_email: config.emails.info,
-                    from_name: 'Pingjs',
+                    from_name: 'Login',
                     to:[{
                     	email: user.email,
                     	name: user.firstName+' '+user.lastName,
@@ -39,9 +39,9 @@ module.exports = {
 			var jobData = {
                     html: html,
                     text: 'Reset Password',
-                    subject: 'Pingjs Password Reset Request',
+                    subject: 'Login Password Reset Request',
                     from_email: config.emails.info,
-                    from_name: 'Pingjs',
+                    from_name: 'Login',
                     to:[{
                     	email: user.email,
                     	name: user.firstName+' '+user.lastName,
