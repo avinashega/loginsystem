@@ -88,7 +88,7 @@ module.exports={
 	    },
 	    changePassword: function(id, req){
 	    	req.assert('newpassword', 'Please use at least 6 characters').len(6, 100);
-	    	req.assert('newpasswordRepeat', 'Your passwords are not equal').equals(req.body('newpassword'));
+	    	req.assert('newpasswordRepeat', 'Your passwords are not equal').equals(req.param('newpassword'));
 	        return q.fcall(function () {
 	            var errors = req.validationErrors();
 	            if (errors) {
