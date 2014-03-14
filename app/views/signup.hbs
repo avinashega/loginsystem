@@ -22,10 +22,6 @@
             <label class="control-label">Last name</label>
             <input type="text" name="lastName" required class="form-control">
         </div>
-        <div class="form-group col-md-12">
-            <label class="control-label">Company name</label>
-            <input type="text" name="company" required class="form-control">
-        </div>
         <div class="form-group col-md-6">
             <label class="control-label">Password</label>
             <input type="password" name="password" required placeholder="******" class="form-control">
@@ -34,6 +30,60 @@
             <label class="control-label">Repeat password</label>
             <input type="password" name="passwordRepeat" required placeholder="******" class="form-control">
         </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Employment Status</label>
+        	<div class="bfh-selectbox" data-name="status" id="status" data-value="">
+            	<div data-value="">Select a status...</div>
+            	<div data-value="stuent">Student</div>
+            	<div data-value="selfEmployed">Self Employed</div>
+            	<div data-value="employee">Employee</div>
+            	<div data-value="unemployed">Unemployed</div>
+        	</div>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Job Title</label>
+            <input type="text" name="jobTitle" required placeholder="ex: CEO, Vice President" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Company name</label>
+            <input type="text" name="company" required class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Fields</label>
+        	<div class="bfh-selectbox" data-name="field" id="field" data-value="">
+            	<div data-value="">Select a Field...</div>
+            	<div data-value="technology">Technology</div>
+            	<div data-value="accounts">Accounts</div>
+            	<div data-value="finance">Finance</div>
+            	<div data-value="marketting">Marketting</div>
+        	</div>
+        </div>
+    	<div class="form-group col-md-12">
+            <label class="control-label">Country</label>
+            <div id="countries2" class="bfh-selectbox bfh-countries" data-country="US" data-filter="true" data-name="country">
+            </div>
+    	</div>
+    	<div class="form-group col-md-6">
+            <label class="control-label">Zip</label>
+            <input type="text" name="zip" required class="form-control">
+        </div>
+		<div class="form-group col-md-6">
+                    <label class="control-label">DOB</label>
+                    <label class="input-group bootstrap-date col-md-12">
+                        <input type="text" name="date" class="form-control datepicker" autocomplete="off" />
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </label>
+        </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Gender</label>
+			<label class="radio-inline">
+  			<input type="radio" id="radioMale" name="gender" value="male" required> Male
+			</label>
+			<label class="radio-inline">
+  			<input type="radio" id="radioFemale" name="gender" value="female" required> Female
+			</label>
+        </div>
+
 
     <div class="form-group col-md-12">
             <p><strong>By registering, you agree to our <a href="http://Login.com/tos" alt="Login Terms of Use" target="_blank">Terms</a> and <a href="http://Login.com/privacy" alt="Login Privacy Policy" target="_blank">Privacy Policy</a>.</strong><br />
@@ -48,3 +98,14 @@
     <label class="help-block text-success b-ajaxForm__successMessage"></label>
 </form>
 </div>
+{{#contentFor "footerscripts"}}
+<script type="text/javascript">
+$(document).ready(function(){
+$('.datepicker').datepicker({
+    autoclose: true,
+    todayHighlight: true
+});
+$('.datepicker').datepicker('setValue', new Date);
+});
+</script>
+{{/contentFor}}
